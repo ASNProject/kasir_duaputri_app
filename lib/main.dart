@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:kasir_duaputri_app/routes/app_routes.dart';
+import 'package:window_size/window_size.dart';
 
 void main() {
   runApp(const MyApp());
