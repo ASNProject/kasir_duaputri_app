@@ -42,6 +42,20 @@ dependencies:
   easy_sidemenu: ^0.4.1+1
   responsive_grid: ^2.2.0
   dropdown_button2: ^2.0.0
+  firebase_core: ^2.9.0
+  cloud_firestore: ^4.5.0
+  firebase_auth: ^4.4.0
+  flutter_signin_button: ^2.0.0
+  firebase_messaging: ^14.4.0
+  flutterfire_ui: ^0.4.3+20
+  easy_debounce: ^2.0.3
+  bloc: ^8.1.1
+  equatable: ^2.0.5
+  animations: ^2.0.7
+  flutter_bloc: ^8.1.2
+  auto_size_text: ^3.0.0
+  google_fonts: ^4.0.3
+  badges: ^2.0.2
 
 dev_dependencies:
   flutter_test:

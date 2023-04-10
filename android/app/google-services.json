@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "45236010395",
+    "project_id": "posapp-d29ae",
+    "storage_bucket": "posapp-d29ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45236010395:android:28d58d80e10d7c457d753e",
+        "android_client_info": {
+          "package_name": "com.example.kasir_duaputri_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45236010395-asp1igic0divj5h5dd1rter3pbt1tahp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6JbLYQYUH7pkYrJGPpSSDQDGXLnDA2DU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45236010395-asp1igic0divj5h5dd1rter3pbt1tahp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

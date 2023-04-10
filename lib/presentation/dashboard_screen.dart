@@ -13,12 +13,17 @@
 // limitations under the License.
 
 import 'package:easy_sidemenu/easy_sidemenu.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfire_ui/auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kasir_duaputri_app/presentation/product_list_widget.dart';
 import 'package:kasir_duaputri_app/presentation/transaksi_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+  final User user;
+
+  const DashboardScreen({super.key, required this.user});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -72,17 +77,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              'Ana Sulistyaningrum',
-                              style: TextStyle(
+                              widget.user.email!,
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
-                            Text(
+                            const Text(
                               'Admin',
                               style: TextStyle(
                                   color: Colors.white,
@@ -102,15 +107,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ],
             ),
             footer: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Copyright 2023. All right reserved',
-                style: TextStyle(
-                    fontSize: 10,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.white),
-              ),
-            ),
+                padding: EdgeInsets.all(8.0), child: SignOutButton()),
             items: [
               SideMenuItem(
                 priority: 0,
@@ -177,32 +174,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 },
                 icon: const Icon(Icons.settings),
               ),
-              // SideMenuItem(
-              //   priority: 5,
-              //   onTap:(page){
-              //     sideMenu.changePage(5);
-              //   },
-              //   icon: const Icon(Icons.image_rounded),
-              // ),
-              // SideMenuItem(
-              //   priority: 6,
-              //   title: 'Only Title',
-              //   onTap:(page){
-              //     sideMenu.changePage(6);
-              //   },
-              // ),
-              const SideMenuItem(
-                priority: 8,
-                title: 'Exit',
-                icon: Icon(Icons.exit_to_app),
-              ),
             ],
           ),
           Expanded(
               child: PageView(
             controller: page,
             children: [
-              Container(color: Colors.white, child: const TransaksiScreen()),
+              Container(color: Colors.white, child: const ProductListWidget()),
               Container(
                 color: Colors.white,
                 child: const Center(

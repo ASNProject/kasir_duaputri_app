@@ -12,23 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutterfire_ui/auth.dart';
 import 'package:kasir_duaputri_app/presentation/dashboard_screen.dart';
-import 'package:kasir_duaputri_app/presentation/transaksi_screen.dart';
 
-final GoRouter appRoutes = GoRouter(routes: <RouteBase>[
-  GoRoute(
-      path: '/',
-      builder: (BuildContext context, GoRouterState state) {
-        return const DashboardScreen();
-      },
-      routes: <RouteBase>[
-        GoRoute(
-          path: 'transaksi',
-          builder: (BuildContext context, GoRouterState state) {
-            return const TransaksiScreen();
-          },
-        )
-      ])
-]);
+class AuthGet extends StatelessWidget {
+  const AuthGet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const SignInScreen(
+              providerConfigs: [EmailProviderConfiguration()],
+            );
+          }
+          return DashboardScreen(
+            user: snapshot.data!,
+          );
+        });
+  }
+}
